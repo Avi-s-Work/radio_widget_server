@@ -26,6 +26,7 @@ async function run() {
     // console.log('Successfully Connected');
     const database = client.db("radioWidget");
     const stationCollection = database.collection("stations");
+    const stationNameCollection = database.collection("stationsNames");
     const userCollection = database.collection("users");
 
     /*-------------------------------------------------------------------------------*\
@@ -37,6 +38,22 @@ async function run() {
       const cursor = stationCollection.find({});
       const stations = await cursor.toArray();
       res.json(stations);
+    });
+
+    // POST API For All Station Names
+    app.post("/stationsNames", async (req, res) => {
+      const name = req.body;
+      console.log(name);
+      const result = await stationsNameCollection.insertOne(name);
+      console.log(result);
+      res.json(result);
+    });
+
+    //Get All Station Names
+    app.get("/stationsNames", async (req, res) => {
+      const cursor = stationsNameCollection.find({});
+      const names = await cursor.toArray();
+      res.json(names);
     });
 
     //POST API For Users
