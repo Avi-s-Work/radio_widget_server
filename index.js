@@ -54,6 +54,16 @@ async function run() {
       const users = await cursor.toArray();
       res.json(users);
     });
+
+    //Upsert SignIn
+    app.put("/users", async (req, res) => {
+      const user = req.body;
+      const filter = { email: user.email };
+      const options = { upsert: true };
+      const updateDoc = { $set: user };
+      const result = await userCollection.updateOne(filter, updateDoc, options);
+      res.json(result);
+    });
   } finally {
     // await client.close();
   }
