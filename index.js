@@ -44,14 +44,14 @@ async function run() {
     app.post("/stationsNames", async (req, res) => {
       const name = req.body;
       console.log(name);
-      const result = await stationsNameCollection.insertOne(name);
+      const result = await stationNameCollection.insertOne(name);
       console.log(result);
       res.json(result);
     });
 
     //Get All Station Names
     app.get("/stationsNames", async (req, res) => {
-      const cursor = stationsNameCollection.find({});
+      const cursor = stationNameCollection.find({});
       const names = await cursor.toArray();
       res.json(names);
     });
