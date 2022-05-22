@@ -4,7 +4,7 @@ const cors = require("cors");
 const ObjectId = require("mongodb").ObjectId;
 require("dotenv").config();
 
-const app = express(); 
+const app = express();
 const port = process.env.PORT || 5000;
 
 //middleware
@@ -26,6 +26,7 @@ async function run() {
     // console.log('Successfully Connected');
     const database = client.db("radioWidget");
     const stationCollection = database.collection("stations");
+    const userCollection = database.collection("users");
 
     /*-------------------------------------------------------------------------------*\
   //////////////////////////////// Stations \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -36,6 +37,22 @@ async function run() {
       const cursor = stationCollection.find({});
       const stations = await cursor.toArray();
       res.json(stations);
+    });
+
+    //POST API For Users
+    app.post("/users", async (req, res) => {
+      const user = req.body;
+      console.log(user);
+      const result = await userCollection.insertOne(user);
+      console.log(result);
+      res.json(result);
+    });
+
+    //Get Users API
+    app.get("/users", async (req, res) => {
+      const cursor = userCollection.find({});
+      const users = await cursor.toArray();
+      res.json(users);
     });
   } finally {
     // await client.close();
