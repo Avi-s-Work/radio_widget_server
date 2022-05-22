@@ -41,7 +41,7 @@ async function run() {
     });
 
     // POST API For All Station Names
-    app.post("/stationsNames", async (req, res) => {
+    app.post("/stationNames", async (req, res) => {
       const name = req.body;
       console.log(name);
       const result = await stationNameCollection.insertOne(name);
@@ -50,7 +50,7 @@ async function run() {
     });
 
     //Get All Station Names
-    app.get("/stationsNames", async (req, res) => {
+    app.get("/stationNames", async (req, res) => {
       const cursor = stationNameCollection.find({});
       const names = await cursor.toArray();
       res.json(names);
