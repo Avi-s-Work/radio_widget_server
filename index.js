@@ -70,6 +70,27 @@ async function run() {
       res.json(result);
     });
 
+    //UPDATE API
+    app.put("/stationNames/:id", async (req, res) => {
+      const id = req.params.id;
+      const updatedUser = req.body;
+      const filter = { _id: ObjectId(id) };
+      const options = { upsert: true };
+      const updateDoc = {
+        $set: {
+          singleStationName: updatedName.singleStationName,
+          singleStationFrequency: updatedFrequency.singleStationFrequency,
+        },
+      };
+      const result = await stationNameCollection.updateOne(
+        filter,
+        updateDoc,
+        options
+      );
+      console.log("updating", id);
+      res.json(result);
+    });
+
     //POST API For Users
     app.post("/users", async (req, res) => {
       const user = req.body;
