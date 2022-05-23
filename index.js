@@ -56,6 +56,15 @@ async function run() {
       res.json(names);
     });
 
+    // Delete Station
+    app.delete("/stationNames/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const result = await stationsNames.deleteOne(query);
+      console.log(result);
+      res.json(result);
+    });
+
     //POST API For Users
     app.post("/users", async (req, res) => {
       const user = req.body;
