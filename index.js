@@ -66,6 +66,7 @@ async function run() {
       res.json(result);
     });
 
+    //Station Name Edit
     app.put("/stationNames/:id", async (req, res) => {
       const id = req.params.id;
       const newStation = req.body;
@@ -73,8 +74,8 @@ async function run() {
       const options = { upsert: true };
       const updateDoc = {
         $set: {
-          name: newStation.name,
-          frequency: newStation.frequency,
+          singleStationName: newStation.name,
+          singleStationFrequency: newStation.frequency,
         },
       };
       const result = await stationNameCollection.updateOne(
