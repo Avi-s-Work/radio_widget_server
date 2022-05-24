@@ -34,10 +34,6 @@ async function run() {
     const stationNameCollection = database.collection("stationsNames");
     const userCollection = database.collection("users");
 
-    /*-------------------------------------------------------------------------------*\
-  //////////////////////////////// Stations \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-\*-------------------------------------------------------------------------------*/
-
     //GET All Packages API
     app.get("/stations", async (req, res) => {
       const cursor = stationCollection.find({});
@@ -70,16 +66,15 @@ async function run() {
       res.json(result);
     });
 
-    //UPDATE API
     app.put("/stationNames/:id", async (req, res) => {
       const id = req.params.id;
-      const updatedUser = req.body;
+      const newStation = req.body;
       const filter = { _id: ObjectId(id) };
       const options = { upsert: true };
       const updateDoc = {
         $set: {
-          singleStationName: updatedName.singleStationName,
-          singleStationFrequency: updatedFrequency.singleStationFrequency,
+          name: newStation.name,
+          frequency: newStation.frequency,
         },
       };
       const result = await stationNameCollection.updateOne(
@@ -89,6 +84,7 @@ async function run() {
       );
       console.log("updating", id);
       res.json(result);
+      console.log(result);
     });
 
     //POST API For Users
