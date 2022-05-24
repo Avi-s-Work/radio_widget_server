@@ -1,42 +1,42 @@
 [
   {
-    "stationName": "Morning Joy FM",
-    "frequency": "98.3"
+    "singleStationName": "Morning Joy FM",
+    "singleStationFrequency": "98.3"
   },
   {
-    "stationName": "Probe Community",
-    "frequency": "78.9"
+    "singleStationName": "Probe Community",
+    "singleStationFrequency": "78.9"
   },
   {
-    "stationName": "Night Truce",
-    "frequency": "91.1"
+    "singleStationName": "Night Truce",
+    "singleStationFrequency": "91.1"
   },
   {
-    "stationName": "Tropical Beats FM",
-    "frequency": "88.9"
+    "singleStationName": "Tropical Beats FM",
+    "singleStationFrequency": "88.9"
   },
   {
-    "stationName": "True confessions",
-    "frequency": "95.6"
+    "singleStationName": "True confessions",
+    "singleStationFrequency": "95.6"
   },
   {
-    "stationName": "Digital 411",
-    "frequency": "76.1"
+    "singleStationName": "Digital 411",
+    "singleStationFrequency": "76.1"
   },
   {
-    "stationName": "Influenza",
-    "frequency": "82.9"
+    "singleStationName": "Influenza",
+    "singleStationFrequency": "82.9"
   },
   {
-    "stationName": "City Spirit",
-    "frequency": "98.2"
+    "singleStationName": "City Spirit",
+    "singleStationFrequency": "98.2"
   },
   {
-    "stationName": "Double Down Ace",
-    "frequency": "99.1"
+    "singleStationName": "Double Down Ace",
+    "singleStationFrequency": "99.1"
   },
   {
-    "stationName": "Fairly Rare",
-    "frequency": "82.3"
+    "singleStationName": "Fairly Rare",
+    "singleStationFrequency": "82.3"
   }
 ]
